@@ -31,9 +31,9 @@ function MoveController () {
         Button_Value = "."
     } else {
         if (YCoord == 0) {
-            Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, 40)
+            Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, Speed)
         } else if (YCoord == 4) {
-            Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Reverse, 40)
+            Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Reverse, Speed)
         } else if (XCoord == 0) {
             Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Left, 20)
         } else if (XCoord == 4) {
@@ -58,6 +58,7 @@ bluetooth.onUartDataReceived(serial.delimiters(Delimiters.SemiColon), function (
 let value = ""
 let key = ""
 let Button_Value = ""
+let Speed = 0
 let Claw_Angle = 0
 let YCoord = 0
 let XCoord = 0
@@ -68,6 +69,7 @@ YCoord = 2
 Claw_Angle = 40
 Kitronik_Move_Motor.turnRadius(Kitronik_Move_Motor.TurnRadii.Wide)
 Kitronik_Move_Motor.writeServoPin(Kitronik_Move_Motor.ServoSelection.servo1, Claw_Angle)
+Speed = 40
 basic.forever(function () {
 	
 })
